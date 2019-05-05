@@ -40,7 +40,7 @@ Please note any type of network security or stability issues will be prioritized
 
 Before every release candidate:
 
-* Update translations see [translation_process.md](https://github.com/navcoin/navcoin-core/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations see [translation_process.md](https://github.com/NAVCoin/navcoin-core/blob/master/doc/translation_process.md#synchronising-translations).
 
 Before every minor and major release:
 
@@ -57,7 +57,7 @@ Before every major release:
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/navcoin/navcoin-core.git
+    git clone https://github.com/NAVCoin/navcoin-core.git
 
 ### NavCoin maintainers/release engineers, update version in sources
 
