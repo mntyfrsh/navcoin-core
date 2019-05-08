@@ -73,6 +73,7 @@ PKGLIST="build-essential\
         dh-make\
         pkg-config\
 	nodejs\
+	net-tools\
         bzr-builddeb"
 
 # install packages
