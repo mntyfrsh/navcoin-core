@@ -1,0 +1,3 @@
+etc/systemd/system/navcoin.service
+etc/systemd/system/navcoin-repair.service
+etc/apache2/sites-available/navdroid.conf

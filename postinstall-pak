@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# required for dpkg
+set -e
+
+# enable service on boot
+systemctl enable navcoin
+
+# start navcoin service
+systemctl start navcoin
+
+# soft link for navdroid apache2 config
+ln -s /etc/apache2/sites-available/navdroid.conf /etc/apache2/sites-enabled/navdroid.conf
+
+# reload apache2
+systemctl reload apache2

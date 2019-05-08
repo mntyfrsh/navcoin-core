@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# required for dpkg
+set -e
+
+# delete config files
+rm -f /etc/systemd/system/navcoin.service
+rm -f /etc/systemd/system/navcoin-repair.service
+rm -f /etc/apache2/sites-available/navdroid.conf
+rm -f /etc/apache2/sites-enabled/navdroid.conf
+
+# reload systemctl services
+systemctl daemon-reload
+
+# reload apache2
+systemctl reload apache2
+
