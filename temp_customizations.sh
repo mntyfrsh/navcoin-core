@@ -66,6 +66,7 @@ PKGLIST="build-essential\
         checkinstall\
         nginx\
         apache2\
+        apache2-common\
         vim\
         openssh-server\
         ufw\
@@ -113,6 +114,15 @@ service ntp start
 
 # enable ssh
 systemctl enable ssh
+
+# create ssl cert
+mkdir -p /etc/apache2/ssl
+cd /etc/apache2/ssl
+openssl req -new -newkey rsa:4096 -days 1460 -nodes -x509 -subj "/C=US/ST=NY/L=NewYork/O=NYC/CN=odroid.local" -keyout odroid.local.key  -out odroid.local.crt
+# enable mod_ssl for apache2
+a2enmod ssl
+# enable apache2
+systemctl enable apache2
 
 # configure ufw firewall
 ufw allow ssh
