@@ -110,7 +110,16 @@ systemctl disable alsa-restore
 systemctl disable cups
 systemctl disable cups-browsed
 systemctl disable openvpn
-#systemctl disable wpa_supplicant
+systemctl disable wpa_supplicant
+
+# clear bash history
+#history -c
+cat /dev/null > ~/.bash_history
+
+# clear root password and thus disable ssh login
+passwd -d root
+
+
 
 
 ##############################
@@ -152,9 +161,6 @@ git clone https://github.com/Encrypt-S/navcoin-express.git
 cd /home/odroid/navcoin-angular
 ./create_package.sh
 
-# clear bash history
-#history -c
-cat /dev/null > ~/.bash_history
 
-# clear root password and thus disable ssh login
-passwd -d root
+
+### EOF ###
