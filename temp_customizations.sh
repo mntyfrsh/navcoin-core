@@ -143,6 +143,7 @@ wget $BOOTSTRAP
 mkdir /home/odroid/.navcoin4 && chown odroid:odroid /home/odroid/.navcoin4
 tar -C /home/odroid/.navcoin4/ -xf bootstrap-navcoin_mainnet.tar && rm -f bootstrap_navcoin_mainnet.tar
 chown -R odroid:odroid /home/odroid/.navcoin4
+rm -f /tmp/bootstrap_navcoin_mainnet.tar
 
 
 #################################
