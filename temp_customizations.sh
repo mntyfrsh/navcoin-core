@@ -159,7 +159,7 @@ cd /home/odroid/navcoin-angular
 #################################
 cd /home/odroid
 git clone https://github.com/Encrypt-S/navcoin-express.git
-cd /home/odroid/navcoin-angular
+cd /home/odroid/navcoin-express
 ./create_package.sh
 
 
