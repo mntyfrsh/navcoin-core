@@ -21,7 +21,7 @@ echo
 make -j${CORES}
 
 # checkinstall to generate dpkg
-checkinstall -D -y --maintainer "info@navcoin.org" --pkgname navcoin-core --pkgversion $VERSION --requires apache2,ntp --include=navdroid/navdroid_files
+checkinstall -D -y --maintainer "info@navcoin.org" --pkgname navcoin-core --pkgversion $VERSION --requires ntp --include=navdroid/navdroid_files
 
 
 echo 
