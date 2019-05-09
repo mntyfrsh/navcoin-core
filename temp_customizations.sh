@@ -47,7 +47,7 @@ DEBIAN_FRONTEND=noninteractive apt-get -q -y -o "Dpkg::Options::=--force-confdef
 apt -y autoremove
 
 PKGLIST="build-essential\
-        libcurl4-openssl-dev\
+        libssl-dev\
         libtool\
         autotools-dev\
         automake\
