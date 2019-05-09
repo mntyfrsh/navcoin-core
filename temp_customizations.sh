@@ -3,6 +3,8 @@
 ## configure navdroid
 ##
 
+export DEBIAN_FRONTEND=noninteractive
+
 ## VERSION determines the deb package build version identifier and should be updated to match the desired release
 VERSION="4.6.0"
 ## DEBUG set to yes|no. yes configures bootstrap to download from specified URL
@@ -33,8 +35,8 @@ add-apt-repository -y ppa:bitcoin/bitcoin
 
 # update apt
 apt -y update
-DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq
-DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -yq
+apt upgrade -yq
+apt dist-upgrade -yq
 apt -y autoremove
 
 PKGLIST="build-essential\
@@ -61,9 +63,6 @@ PKGLIST="build-essential\
         sysstat\
         screen\
         checkinstall\
-        nginx\
-        apache2\
-        apache2-common\
         vim\
         openssh-server\
         ufw\
@@ -82,26 +81,6 @@ apt -y autoremove
 # install npm manually because current package has broken dependencies
 curl -L https://www.npmjs.com/install.sh | sudo sh
 
-# update npm 3.x to 5.x
-#npm install npm -g
-#hash -d npm
-# install npm packages
-#npm install pm2 -g
-#npm install forever -g
-#npm install @angular/cli -g
-#npm install typescript@3.2 -g
-#npm install @angular/compiler-cli -g
-#npm install @angular/compiler -g
-#npm install @angular-devkit/build-angular -g
-#npm install rxjs -g
-#npm install @angular/animations -g
-#npm install @angular/common -g
-#npm install @angular/forms -g
-#npm install @angular/platform-browser -g
-#npm install @angular/platform-browser-dynamic -g
-#npm install zone.js@0.8.26 -g
-#npm install @angular/core -g
-
 # set vim as default editor
 update-alternatives --set editor /usr/bin/vim.basic
 
@@ -111,15 +90,6 @@ service ntp start
 
 # enable ssh
 systemctl enable ssh
-
-# create ssl cert
-mkdir -p /etc/apache2/ssl
-cd /etc/apache2/ssl
-openssl req -new -newkey rsa:4096 -days 1460 -nodes -x509 -subj "/C=US/ST=NY/L=NewYork/O=NYC/CN=odroid.local" -keyout odroid.local.key  -out odroid.local.crt
-# enable mod_ssl for apache2
-a2enmod ssl
-# enable apache2
-systemctl enable apache2
 
 # configure ufw firewall
 ufw allow ssh
@@ -136,15 +106,9 @@ systemctl disable openvpn
 #systemctl disable wpa_supplicant
 
 
-# expand microsd filesystem on next boot
-# this script points to a static drive variable and may break at some point
-#chmod +x fs_resize_navdroid.sh
-#bash -x fs_resize_navdroid.sh
-
-
-########################
-# install navcoin-core #
-########################
+##############################
+# build navcoin-core package #
+##############################
 cd /home/odroid
 git clone https://github.com/navcoin/navcoin-core.git
 cd navcoin-core
@@ -153,7 +117,7 @@ cd navcoin-core
 make -j3
 
 # checkinstall to generate dpkg
-checkinstall -D -y --maintainer "info@navcoin.org" --pkgname navcoin-core --pkgversion $VERSION --requires apache2,ntp --include=navdroid/navdroid_files
+checkinstall -D -y --maintainer "info@navcoin.org" --pkgname navcoin-core --pkgversion $VERSION --requires ntp --include=navdroid/navdroid_files
 
 # clean up
 make clean
@@ -161,14 +125,13 @@ make clean
 # bootstrap
 cd /tmp
 wget $BOOTSTRAP
-
 mkdir /home/odroid/.navcoin4 && chown odroid:odroid /home/odroid/.navcoin4
 tar -C /home/odroid/.navcoin4/ -xf bootstrap-navcoin_mainnet.tar && rm -f bootstrap_navcoin_mainnet.tar
 chown -R odroid:odroid /home/odroid/.navcoin4
 
-########################
-# install angular #
-########################
+#################################
+# build navcoin-angular package #
+#################################
 cd /home/odroid
 git clone https://github.com/Encrypt-S/navcoin-angular.git
 git clone https://github.com/Encrypt-S/navcoin-express.git
