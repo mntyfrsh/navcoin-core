@@ -15,7 +15,7 @@ export DEBIAN_FRONTEND=noninteractive
 ## VERSION determines the deb package build version identifier and should be updated to match the desired release
 VERSION="4.6.0"
 ## DEBUG set to yes|no. yes configures bootstrap to download from specified URL
-DEBUG="no"
+DEBUG="yes"
 ## Bootstrap URL
 if [ $DEBUG = "yes" ]; then
 	# local boostrap
@@ -42,8 +42,8 @@ add-apt-repository -y ppa:bitcoin/bitcoin
 
 # update apt
 apt -y update
-apt upgrade -yq
-apt dist-upgrade -yq
+DEBIAN_FRONTEND=noninteractive apt-get -q -y -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" upgrade
+DEBIAN_FRONTEND=noninteractive apt-get -q -y -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" dist-upgrade
 apt -y autoremove
 
 PKGLIST="build-essential\
