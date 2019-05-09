@@ -1,8 +1,15 @@
 #!/bin/sh
 #
-## configure navdroid
-##
+###
+## Configure Ubuntu 18.04 and build navdroid packages
+###
+#
+#
 
+
+
+DIR=`pwd`
+PARENTDIR="$(dirname "$dir")"
 export DEBIAN_FRONTEND=noninteractive
 
 ## VERSION determines the deb package build version identifier and should be updated to match the desired release
@@ -117,10 +124,8 @@ cd navcoin-core
 make -j3
 
 # checkinstall to generate dpkg
-checkinstall -D -y --maintainer "info@navcoin.org" --pkgname navcoin-core --pkgversion $VERSION --requires ntp --include=navdroid/navdroid_files
+checkinstall -D -y --maintainer "info@navcoin.org" --pkgname navcoin-core --pkgversion $VERSION --requires ntp --include=navdroid/navdroid_files --install=no --backup=no --pakdir=$PARENTDIR
 
-# clean up
-make clean
 
 # bootstrap
 cd /tmp
@@ -129,13 +134,23 @@ mkdir /home/odroid/.navcoin4 && chown odroid:odroid /home/odroid/.navcoin4
 tar -C /home/odroid/.navcoin4/ -xf bootstrap-navcoin_mainnet.tar && rm -f bootstrap_navcoin_mainnet.tar
 chown -R odroid:odroid /home/odroid/.navcoin4
 
+
 #################################
 # build navcoin-angular package #
 #################################
 cd /home/odroid
 git clone https://github.com/Encrypt-S/navcoin-angular.git
+cd /home/odroid/navcoin-angular
+./create_package.sh
+
+
+#################################
+# build navcoin-express package #
+#################################
+cd /home/odroid
 git clone https://github.com/Encrypt-S/navcoin-express.git
-chown -R odroid:odroid /home/odroid/navcoin*
+cd /home/odroid/navcoin-angular
+./create_package.sh
 
 # clear bash history
 #history -c
