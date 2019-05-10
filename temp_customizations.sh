@@ -104,7 +104,7 @@ ufw allow ssh
 ufw allow http
 ufw allow https
 ufw allow from any proto tcp port 4200
-ufw enable
+ufw --force enable
 
 # disable services
 systemctl disable alsa-restore
