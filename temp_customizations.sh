@@ -101,6 +101,7 @@ systemctl enable ssh
 
 # configure ufw firewall
 ufw allow ssh
+ufw allow from any proto tcp port 4100
 ufw allow from any proto tcp port 4200
 ufw --force enable
 
