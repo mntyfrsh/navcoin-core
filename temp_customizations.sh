@@ -36,7 +36,7 @@ timedatectl set-timezone UTC
 useradd -m -G sudo,ssh,users -u 6021 -p Om16ojfOaLNA6 -s /bin/bash odroid
 
 # sudoers
-echo "Cmnd_Alias NAV_CMDS = /sbin/reboot -f, /sbin/shutdown now, /bin/systemctl start navcoin, /bin/systemctl stop navcoin, /bin/systemctl restart navcoin, /bin/systemctl start navcoin-core, /bin/systemctl stop navcoin-core, /bin/systemctl restart navcoin-core, /bin/systemctl start navcoin-repair, /bin/systemctl stop navcoin-repair, /bin/systemctl start navcoin-angular, /bin/systemctl stop navcoin-angular, /bin/systemctl restart navcoin-angular, /bin/systemctl start navcoin-express, /bin/systemctl stop navcoin-express, /bin/systemctl restart navcoin-express, /bin/systemctl start navdroid, /bin/systemctl stop navdroid, /bin/systemctl restart navdroid" >> /etc/sudoers
+echo "Cmnd_Alias NAV_CMDS = /bin/chown odroid:odroid /home/odroid/.navcoin4/wallet.dat, /bin/chmod 600 /home/odroid/.navcoin4/wallet.dat, /sbin/shutdown -r now, /sbin/init 0, /bin/systemctl start navcoin, /bin/systemctl stop navcoin, /bin/systemctl restart navcoin, /bin/systemctl start navcoin-core, /bin/systemctl stop navcoin-core, /bin/systemctl restart navcoin-core, /bin/systemctl start navcoin-repair, /bin/systemctl stop navcoin-repair, /bin/systemctl start navcoin-angular, /bin/systemctl stop navcoin-angular, /bin/systemctl restart navcoin-angular, /bin/systemctl start navcoin-express, /bin/systemctl stop navcoin-express, /bin/systemctl restart navcoin-express, /bin/systemctl start navdroid, /bin/systemctl stop navdroid, /bin/systemctl restart navdroid" >> /etc/sudoers
 echo "odroid ALL=NOPASSWD: NAV_CMDS" >> /etc/sudoers
 
 # add repo
