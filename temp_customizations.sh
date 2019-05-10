@@ -76,7 +76,6 @@ PKGLIST="build-essential\
         ufw\
         curl\
         dh-make\
-        pkg-config\
 	nodejs\
 	net-tools\
         bzr-builddeb"
