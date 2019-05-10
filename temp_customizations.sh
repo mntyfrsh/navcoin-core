@@ -102,8 +102,6 @@ systemctl enable ssh
 
 # configure ufw firewall
 ufw allow ssh
-ufw allow http
-ufw allow https
 ufw allow from any proto tcp port 4200
 ufw --force enable
 
@@ -164,6 +162,12 @@ git clone https://github.com/Encrypt-S/navcoin-express.git
 cd /home/odroid/navcoin-express
 ./create_package.sh
 
+
+echo
+echo
+echo "FINISHED"
+echo
+echo
 
 
 ### EOF ###
