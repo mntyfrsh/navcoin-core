@@ -4,6 +4,7 @@
 set -e
 
 # enable service on boot
+systemctl daemon-reload
 systemctl enable navcoin
 
 echo

@@ -141,7 +141,7 @@ checkinstall -D -y --maintainer "info@navcoin.org" --pkgname navcoin-core --pkgv
 cd /tmp
 wget $BOOTSTRAP
 mkdir /home/odroid/.navcoin4 && chown odroid:odroid /home/odroid/.navcoin4
-tar -C /home/odroid/.navcoin4/ -xf bootstrap-navcoin_mainnet.tar && rm -f bootstrap_navcoin_mainnet.tar
+tar -C /home/odroid/.navcoin4/ -xf bootstrap-navcoin_mainnet.tar && rm -f /tmp/bootstrap-navcoin_mainnet.tar
 chown -R odroid:odroid /home/odroid/.navcoin4
 rm -f /tmp/bootstrap_navcoin_mainnet.tar
 
