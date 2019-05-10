@@ -6,6 +6,8 @@
 #
 #
 
+set -x
+
 
 
 DIR=`pwd`
