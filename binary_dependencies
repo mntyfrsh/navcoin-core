@@ -1,6 +1,8 @@
 ntp
 bsdmainutils
 libboost-all-dev
+libdb4.8-dev
+libdb4.8++-dev
 synaptic
 zram-config
 ntpdate
