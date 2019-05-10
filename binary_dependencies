@@ -1,0 +1,8 @@
+ntp
+bsdmainutils
+libboost-all-dev
+synaptic
+zram-config
+ntpdate
+curl
+nodejs
