@@ -134,7 +134,7 @@ cd navcoin-core
 make -j3
 
 # checkinstall to generate dpkg
-checkinstall -D -y --maintainer "info@navcoin.org" --pkgname navcoin-core --pkgversion $VERSION --requires ntp --include=navdroid/navdroid_files --install=no --backup=no --pakdir=$PARENTDIR
+checkinstall -D -y --maintainer "info@navcoin.org" --pkgname navcoin-core --pkgversion $VERSION --include=navdroid/navdroid_files --install=no --backup=no --pakdir=$PARENTDIR
 
 
 # bootstrap
