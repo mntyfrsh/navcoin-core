@@ -5,6 +5,8 @@ libdb4.8-dev
 libdb4.8++-dev
 libunbound-dev
 libzmq3-dev
+libminiupnpc-dev
+libevent-dev
 synaptic
 zram-config
 ntpdate
