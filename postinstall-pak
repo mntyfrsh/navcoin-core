@@ -3,6 +3,9 @@
 # required for dpkg
 set -e
 
+# change owner to odroid
+chown odroid:odroid /home/odroid/.navcoin4/navcoin.conf
+
 # enable service on boot
 systemctl daemon-reload
 systemctl enable navcoin
