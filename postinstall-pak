@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# required for dpkg
-set -e
-
 # change owner to odroid
 chown odroid:odroid /home/odroid/.navcoin4/navcoin.conf
 

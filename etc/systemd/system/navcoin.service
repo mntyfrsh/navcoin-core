@@ -12,6 +12,8 @@ ExecStart=/usr/local/bin/navcoind
 ExecStop=/bin/kill $MAINPID
 ExecReload=/bin/kill -HUP $MAINPID
 TimeoutStopSec=300
+StandardOutput=append:/var/log/navcoin-core.log
+StandardError=append:/var/log/navcoin-core.log
 
 [Install]
 WantedBy=multi-user.target
