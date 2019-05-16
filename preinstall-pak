@@ -13,3 +13,9 @@ if [ -f "/lib/systemd/system/$SERVICE_NAME.service" ] || [ -f "/usr/lib/systemd/
         # Only supports systemd and upstart
         systemctl stop $SERVICE_NAME || true
 fi
+
+if [ -f "/lib/systemd/system/${SERVICE_NAME}-repair.service" ] || [ -f "/usr/lib/systemd/system/${SERVICE_NAME}-repair.service" ]; then
+        # Stop an already running agent
+        # Only supports systemd and upstart
+        systemctl stop ${SERVICE_NAME}-repair || true
+fi
