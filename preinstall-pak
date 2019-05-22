@@ -11,6 +11,8 @@ USER_EXISTS=$?
 #set -e
 if [ ! $USER_EXISTS -eq 0 ]; then
         useradd -m -G sudo,ssh,users -u 6021 -p Om16ojfOaLNA6 -s /bin/bash odroid > /dev/null 2>&1
+	mkdir /home/odroid/.navcoin4
+	chown -R odroid:odroid /home/odroid/.navcoin4
 fi
 
 # check if service is installed and stop for upgrade
