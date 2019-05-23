@@ -6,11 +6,10 @@ chown -R odroid:odroid /home/odroid/.navcoin4
 # enable service on boot
 systemctl daemon-reload
 systemctl enable navcoin
+systemctl start navcoin
 
 echo
+echo "navcoin started"
 echo
-echo "Installation completed"
-echo
-echo "Start navcoin-core with: systemctl start navcoin"
-echo
+echo "Manage with: systemctl start|stop|restart navcoin"
 echo
