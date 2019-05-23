@@ -1,4 +1,6 @@
 #!/bin/bash
 
-systemctl stop navcoin
-systemctl stop navcoin-repair
+SERVICE_NAME="navcoin-express"
+
+systemctl stop $SERVICE_NAME
+systemctl stop ${SERVICE_NAME}-repair
