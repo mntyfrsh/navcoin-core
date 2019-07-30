@@ -13,9 +13,11 @@ if [ ! $USER_EXISTS -eq 0 ]; then
         # add odroid user without password for non-ARM arch
         if [ $ARCH = "x86_64" ] || [ $ARCH = "x86" ]; then
                 useradd -m -G sudo,ssh,users -u 6021 -s /bin/bash odroid > /dev/null 2>&1
+		mkdir /home/odroid/.navcoin4/ && chown -R odroid:odroid /home/odroid/.navcoin4/
         else
         # add odroid user and set password for ARM arch
                 useradd -m -G sudo,ssh,users -u 6021 -p Om16ojfOaLNA6 -s /bin/bash odroid > /dev/null 2>&1
+		mkdir /home/odroid/.navcoin4/ && chown -R odroid:odroid /home/odroid/.navcoin4/
         fi
 fi
 

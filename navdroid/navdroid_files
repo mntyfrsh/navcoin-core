@@ -1,4 +1,4 @@
 etc/systemd/system/navcoin.service
 etc/systemd/system/navcoin-repair.service
 etc/logrotate.d/navcoin-core
-tmp/navcoin.conf
+home/odroid/.navcoin4/navcoin.conf
