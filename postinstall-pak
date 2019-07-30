@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# install navcoin.conf
+mv /etc/navcoin.conf /home/odroid/.navcoin4/navcoin.conf
+
 # change owner to odroid
 chown -R odroid:odroid /home/odroid/.navcoin4
 
