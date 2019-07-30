@@ -1,4 +1,4 @@
 etc/systemd/system/navcoin.service
 etc/systemd/system/navcoin-repair.service
 etc/logrotate.d/navcoin-core
-etc/navcoin.conf
+tmp/navcoin.conf
